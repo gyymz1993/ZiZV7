@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.lsjr.zizisteward.coustom.MySwipeRefreshLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/id_swpe_refresh_lay"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white"
+    android:orientation="vertical">
+
+    <com.yangshao.loading.BaseLoadingLayout
+        android:id="@+id/id_loadview"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:id="@+id/id_net_layout"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="center"
+            android:orientation="vertical">
+
+            <com.lsjr.zizisteward.coustom.myrecycleview.WrapRecyclerView
+                android:id="@+id/gridview_recommend"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginBottom="10dip"
+                android:layout_marginTop="5dip"
+                android:scrollbars="none" />
+        </LinearLayout>
+    </com.yangshao.loading.BaseLoadingLayout>
+
+</com.lsjr.zizisteward.coustom.MySwipeRefreshLayout>

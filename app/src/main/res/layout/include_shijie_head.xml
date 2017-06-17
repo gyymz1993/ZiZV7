@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:background="@color/white"
+    >
+
+    <TextView
+        android:id="@+id/famous_people"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="10dp"
+        android:layout_marginTop="5dp"
+        android:text="名人榜"
+        android:textColor="@color/colorBlack"
+        android:textSize="16sp" />
+
+    <HorizontalScrollView
+        android:background="@color/white"
+        android:id="@+id/id_hsv_contain"
+        android:layout_width="match_parent"
+        android:layout_height="110dip"
+        android:layout_below="@+id/famous_people"
+        android:scrollbars="none" >
+
+        <LinearLayout
+            android:id="@+id/id_ll_parent"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="center_vertical"
+            android:orientation="horizontal"
+            android:paddingLeft="8dp"
+            android:paddingTop="2dp" >
+        </LinearLayout>
+    </HorizontalScrollView>
+
+</LinearLayout>

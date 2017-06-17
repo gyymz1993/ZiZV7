@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/fl_title"
+    android:layout_width="match_parent"
+    android:layout_height="50dip"
+    android:background="@color/colorBlack">
+
+    <RelativeLayout
+        android:layout_width="180dp"
+        android:layout_height="50dp"
+        android:layout_centerInParent="true">
+
+        <com.yangshao.indicator.MagicIndicator
+            android:layout_centerInParent="true"
+            android:id="@+id/id_mgindicator"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@color/white" />
+
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/re_to_collect"
+        android:layout_width="60dp"
+        android:layout_height="50dp"
+        android:layout_alignParentLeft="true"
+        android:layout_centerVertical="true">
+
+        <ImageView
+            android:layout_width="15dp"
+            android:layout_height="20dp"
+            android:layout_centerInParent="true"
+            android:scaleType="fitXY"
+            android:src="@drawable/eye_collect" />
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/re_search"
+        android:layout_width="60dp"
+        android:layout_height="50dp"
+        android:layout_alignParentRight="true"
+        android:layout_centerVertical="true">
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:scaleType="centerCrop"
+            android:src="@drawable/eye_search" />
+    </RelativeLayout>
+</RelativeLayout>

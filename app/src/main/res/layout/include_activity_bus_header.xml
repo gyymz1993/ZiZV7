@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.design.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+
+    >
+
+    <android.support.design.widget.AppBarLayout
+        android:id="@+id/appBarLayout"
+        android:layout_width="match_parent"
+        android:layout_height="225dp"
+        android:background="@drawable/others_beijing"
+        >
+
+        <android.support.design.widget.CollapsingToolbarLayout
+            android:id="@+id/collapsing_toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            app:layout_scrollFlags="scroll|exitUntilCollapsed">
+
+            <android.support.v7.widget.Toolbar
+                android:id="@+id/toolbar"
+                android:layout_width="match_parent"
+                android:layout_height="?attr/actionBarSize"
+                app:layout_collapseMode="pin"
+                app:theme="@style/ThemeOverlay.AppCompat.Dark" />
+
+            <com.lsjr.zizisteward.coustom.SlideView
+                android:id="@+id/stuff_container"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:collapsedPadding="52dp">
+
+                <ImageView
+                    android:id="@+id/iv_name_photo"
+                    android:layout_width="60dp"
+                    android:layout_height="60dp"
+                    android:layout_gravity="center"
+                    android:fitsSystemWindows="true"
+                    android:src="@drawable/ic_launcher_round"
+                    app:civ_border_color="#ffffff"
+                    app:civ_border_width="2dp" />
+            </com.lsjr.zizisteward.coustom.SlideView>
+
+            <com.lsjr.zizisteward.coustom.SlideView
+                android:id="@+id/stuff_container1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:collapsedPadding="100dp">
+
+                <TextView
+                    android:id="@+id/tv_name"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:textColor="@color/colorAccent"
+                    android:textSize="16sp" />
+            </com.lsjr.zizisteward.coustom.SlideView>
+
+        </android.support.design.widget.CollapsingToolbarLayout>
+
+
+    </android.support.design.widget.AppBarLayout>
+
+    <android.support.v4.widget.NestedScrollView
+        android:id="@+id/nestedScrollView"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:layout_behavior="@string/appbar_scrolling_view_behavior">
+
+        <android.support.v7.widget.RecyclerView
+            android:id="@+id/id_recyview"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" />
+
+    </android.support.v4.widget.NestedScrollView>
+
+</android.support.design.widget.CoordinatorLayout>

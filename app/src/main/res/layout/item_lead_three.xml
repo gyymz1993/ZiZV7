@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="121dip"
+    android:orientation="horizontal">
+
+    <LinearLayout
+        style="@style/layout_horizontal"
+        android:layout_weight="1"
+        android:orientation="vertical">
+
+        <LinearLayout
+            style="@style/layout_vertical"
+            android:layout_weight="1"
+            android:orientation="horizontal">
+
+            <include layout="@layout/item_lead_style" />
+        </LinearLayout>
+
+        <LinearLayout
+            style="@style/layout_vertical"
+            android:layout_weight="1"
+            android:gravity="center">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:gravity="center"
+                android:text="健康监测，挂号 ，陪聊" />
+        </LinearLayout>
+
+        <LinearLayout style="@style/LineVerticalStyle" />
+
+    </LinearLayout>
+
+
+    <LinearLayout style="@style/LineHorizontalStyle" />
+
+
+    <LinearLayout
+        style="@style/layout_horizontal"
+        android:layout_weight="1"
+        android:orientation="vertical">
+
+        <LinearLayout
+            style="@style/layout_vertical"
+            android:layout_weight="1">
+
+            <include layout="@layout/item_lead_style" />
+        </LinearLayout>
+
+        <LinearLayout style="@style/LineVerticalStyle" />
+
+        <LinearLayout
+            style="@style/layout_vertical"
+            android:layout_weight="1">
+
+            <include layout="@layout/item_lead_style" />
+        </LinearLayout>
+
+        <LinearLayout style="@style/LineVerticalStyle" />
+
+    </LinearLayout>
+
+</LinearLayout>

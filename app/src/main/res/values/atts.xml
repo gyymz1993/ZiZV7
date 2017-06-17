@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <declare-styleable name="SettingBarView">
+        <attr name="backgrounds" format="reference|color" />
+        <attr name="titles" format="string" />
+        <attr name="titleMargin" format="dimension" />
+        <attr name="titleTextSize" format="dimension" />
+        <attr name="tTextColor" format="color" />
+        <attr name="leftTextColor" format="reference|color" />
+        <attr name="leftTextSize" format="dimension" />
+        <attr name="leftWidth" format="dimension" />
+        <attr name="leftHeight" format="dimension" />
+        <attr name="leftMargin" format="dimension" />
+        <attr name="leftBackground" format="reference|color" />
+        <attr name="leftText" format="string" />
+        <attr name="rightTextColor" format="reference|color" />
+        <attr name="rightTextSize" format="dimension" />
+        <attr name="rightWidth" format="dimension" />
+        <attr name="rightHeight" format="dimension" />
+        <attr name="rightMargin" format="dimension" />
+        <attr name="rightBackground" format="reference|color" />
+        <attr name="rightText" format="string" />
+        <attr name="buttonMode">
+            <enum name="both" value="0" />
+            <enum name="left" value="1" />
+            <enum name="right" value="2" />
+        </attr>
+    </declare-styleable>
+    <declare-styleable name="settingItem">
+        <attr name="logo_src" format="reference" />
+        <attr name="item_name" format="string" />
+        <attr name="item_off" format="reference" />
+    </declare-styleable>
+
+    <declare-styleable name="ControlItemView">
+        <attr name="logo_srcs" format="reference" />
+        <attr name="device_names" format="string" />
+        <attr name="bg_colors" format="color|reference" />
+        <attr name="default_states" format="boolean" />
+    </declare-styleable>
+
+
+    <declare-styleable name="RoundImageView">
+        <attr name="borderRadius" format="integer" />
+        <attr name="type">
+            <enum name="round"  value="1"/>
+            <enum name="cicle" value="2"/>
+            </attr>
+    </declare-styleable>
+
+
+    <declare-styleable name="CircleImageView">
+        <attr name="civ_border_width" format="dimension" />
+        <attr name="civ_border_color" format="color" />
+        <attr name="civ_border_overlay" format="boolean" />
+        <attr name="civ_fill_color" format="color" />
+    </declare-styleable>
+
+    <declare-styleable name="IdentityImageView">
+        <attr name="iciv_bigimage" format="reference"/><!--大图片-->
+        <attr name="iciv_smallimage" format="reference"/><!--小图片-->
+        <attr name="iciv_angle" format="float"/><!--标识角度-->
+        <attr name="iciv_radiusscale" format="float"/><!--大小图片比例-->
+        <attr name="iciv_isprogress" format="boolean"/><!--是否有进度条-->
+        <attr name="iciv_progress_collor" format="color|reference"/><!--进度条颜色-->
+        <attr name="iciv_border_color" format="color|reference"/><!--边框颜色-->
+        <attr name="iciv_border_width" format="integer"/><!--边框宽度-->
+        <attr name="iciv_hint_smallimageview" format="boolean"/><!--是否隐藏小图片-->
+    </declare-styleable>
+
+
+
+    <declare-styleable name="RatioImageView">
+        <attr name="ratio" format="float"/>
+    </declare-styleable>
+
+    <declare-styleable name="AbsNineGridLayout">
+        <attr name="sapcing" format="dimension"/>
+    </declare-styleable>
+
+
+    <declare-styleable name="SlideView">
+        <attr name="collapsedPadding" format="dimension" />
+        <attr name="expandedPadding" format="dimension" />
+
+        <attr name="collapsedImageSize" format="dimension" />
+        <attr name="expandedImageSize" format="dimension" />
+    </declare-styleable>
+
+</resources>
