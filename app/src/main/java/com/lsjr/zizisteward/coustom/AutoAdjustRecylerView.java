@@ -116,6 +116,8 @@ public class AutoAdjustRecylerView extends RecyclerView {
 		if(position == (firstvisiableposition + 1) || position == firstvisiableposition){
 			//当前位置需要向右平移
 			leftScrollBy(position, firstvisiableposition);
+			//smoothScrollTo(hsl_images.getLeft(), 0);
+
 		}
 		else if(position == (lastvisiableposition - 1) || position == lastvisiableposition){
 			//当前位置需要向做平移

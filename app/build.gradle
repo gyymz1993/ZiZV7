@@ -106,54 +106,75 @@ dependencies {
     testCompile 'junit:junit:4.12'
     compile project(':mvplibrary')
     compile 'com.facebook.fresco:fresco:0.12.0'
+
     // 在 API < 14 上的机器支持 WebP 时，需要添加
     compile 'com.facebook.fresco:animated-base-support:0.12.0'
+
     // 支持 GIF 动图，需要添加
     compile 'com.facebook.fresco:animated-gif:0.12.0'
+
     // 支持 WebP （静态图+动图），需要添加
     compile 'com.facebook.fresco:animated-webp:0.12.0'
     compile 'com.facebook.fresco:webpsupport:0.12.0'
+
     // 仅支持 WebP 静态图，需要添加
     compile 'org.xutils:xutils:3.5.0'
     compile 'com.yanzhenjie:album:1.0.5'
+
     /*微信登陆*/
     compile 'com.tencent.mm.opensdk:wechat-sdk-android-with-mta:+'
+
     /*qq登陆*/
     compile files('libs/mta-sdk-1.6.2.jar')
     compile files('libs/open_sdk_r5788.jar')
+
     /*微博登陆*/
     compile files('libs/MobCommons-2017.0412.1554.jar')
     compile files('libs/MobTools-2017.0412.1554.jar')
     compile files('libs/ShareSDK-Core-2.8.3.jar')
     compile files('libs/ShareSDK-SinaWeibo-2.8.3.jar')
+
     /*黄牛导依赖*/
     compile 'com.jakewharton:butterknife:8.5.1'
     annotationProcessor 'com.jakewharton:butterknife-compiler:8.5.1'
+
     /*支付宝支付*/
     compile files('libs/alipaySdk-20170407.jar')
     compile project(':refreshlibrary')
 
+    //    /*淘宝开源Vlayout*/
 
-    /*淘宝开源Vlayout*/
-    compile('com.alibaba.android:vlayout:1.0.6@aar') {
-        transitive = true
-    }
+    //    compile('com.alibaba.android:vlayout:1.0.6@aar') {
+
+    //        transitive = true
+
+    //    }
+
     /*环信*/
+
     //Optional compile for GCM (Google Cloud Messaging).
+
     //noinspection GradleDependency
+
     //compile 'com.google.android.gms:play-services-gcm:9.4.0'
-   // compile 'com.google.android.gms:play-services:8.4.0'
+
+    // compile 'com.google.android.gms:play-services:8.4.0'
+
     //noinspection GradleCompatible
+
     //compile 'com.google.android.gms:play-services-gcm:8.1.0'
+
     //compile 'com.hyphenate:hyphenate-sdk:3.3.0'
     compile 'com.parse:parse-android:1.13.1'
     compile 'com.android.support:multidex:1.0.1'
 
     //compile 'com.google.android.gms:play-services:8.4.0'
+
     //compile project(':easeui')
     compile project(':redpacketlibrary')
     compile project(':jtabstrip')
     compile project(':banner')
     compile project(':adapterlibrary')
     compile project(':indicatorlibrary')
+    compile project(':nicelayoutlibrary')
 }

@@ -72,14 +72,17 @@ public class GalleryAdapter extends RecyclerView.Adapter<GalleryAdapter.ViewHold
         holder.textView.setText(mTitles[position]);
         if (isSelected.get(position)) {
             holder.imageView.setImageResource(mImageSelect[position]);
-            //holder.imageView.setScaleX(1.1f);
-            //holder.imageView.setScaleY(1.1f);
-            setBigImageLayouParams(holder);
+            holder.imageView.setScaleX(1.2f);
+            holder.imageView.setScaleY(1.2f);
+            //setBigImageLayouParams(holder);
         } else {
             holder.imageView.setImageResource(mImageNormal[position]);
-            setSmaillImageLayouParams(holder);
-            //holder.imageView.setScaleX(0.9f);
-            //holder.imageView.setScaleY(0.9f);
+            //setSmaillImageLayouParams(holder);
+            holder.imageView.getLayoutParams();
+            //.setLayoutParams(lp);
+           // child.setScaleY(scaleFactor);
+            holder.imageView.setScaleX(0.9f);
+            holder.imageView.setScaleY(0.9f);
         }
         holder.imageView.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -90,7 +93,8 @@ public class GalleryAdapter extends RecyclerView.Adapter<GalleryAdapter.ViewHold
     }
 
     public void setCurrentItme(int position){
-        mAutoAdjustRecylerView.checkScrollTo(position);
+        //mAutoAdjustRecylerView.checkScrollTo(position);
+        mAutoAdjustRecylerView.checkAutoAdjust(position);
         for (int i=0;i<isSelected.size();i++){
             isSelected.set(i,false);
         }

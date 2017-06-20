@@ -1,15 +1,20 @@
 package com.lsjr.zizisteward.activity.home.fragment;
 
+import android.graphics.Color;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentPagerAdapter;
 import android.support.v4.view.ViewPager;
 import android.support.v7.widget.LinearLayoutManager;
+import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import com.lsjr.zizisteward.R;
@@ -175,7 +180,48 @@ public class TabHomeFragment extends BaseMvpFragment implements GroupActivity.Ge
                 mVpHome.setCurrentItem(position, false);
             }
         });
+        //idRecyview.setOnScrollListener(mOnScrollListener);
     }
+
+
+
+
+    private static final float MIN_SCALE = .95f;
+    private static final float MAX_SCALE = 1.15f;
+    private int mMinWidth;
+    private int mMaxWidth;
+    private int mScreenWidth;
+    private RecyclerView.OnScrollListener mOnScrollListener = new RecyclerView.OnScrollListener() {
+        @Override
+        public void onScrolled(RecyclerView recyclerView, int dx, int dy) {
+            mScreenWidth = getResources().getDisplayMetrics().widthPixels;
+            mMinWidth = (int) (mScreenWidth * 0.28f);
+            mMaxWidth = mScreenWidth - 2 * mMinWidth;
+            final int childCount = recyclerView.getChildCount();
+            Log.e("tag", childCount + "");
+            for (int i = 0; i < childCount; i++) {
+                LinearLayout child = (LinearLayout) recyclerView.getChildAt(i);
+                RecyclerView.LayoutParams lp = (RecyclerView.LayoutParams) child.getLayoutParams();
+                lp.rightMargin = 5;
+                lp.height = 200;
+
+                int left = child.getLeft();
+                int right = mScreenWidth - child.getRight();
+                final float percent = left < 0 || right < 0 ? 0 : Math.min(left, right) * 1f / Math.max(left, right);
+                Log.e("tag", "percent = " + percent);
+                float scaleFactor = MIN_SCALE + Math.abs(percent) * (MAX_SCALE - MIN_SCALE);
+                int width = (int) (mMinWidth + Math.abs(percent) * (mMaxWidth - mMinWidth));
+                lp.width = width;
+                child.setLayoutParams(lp);
+                child.setScaleY(scaleFactor);
+                if (percent > 1f / 3) {
+                    ((TextView) child.getChildAt(1)).setTextColor(Color.BLUE);
+                } else {
+                    ((TextView) child.getChildAt(1)).setTextColor(Color.BLACK);
+                }
+            }
+        }
+    };
 
 
     @Override

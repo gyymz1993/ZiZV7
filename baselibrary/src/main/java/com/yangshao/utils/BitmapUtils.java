@@ -23,18 +23,21 @@ import java.io.IOException;
  */
 public class BitmapUtils {
     public static BitmapUtils bimpUtils;
+
     public static BitmapUtils getInstace() {
         if (bimpUtils == null) {
             bimpUtils = new BitmapUtils();
         }
         return bimpUtils;
     }
-    private BitmapUtils(){
+
+    private BitmapUtils() {
     }
 
 
     /**
-     *  查询图片路径
+     * 查询图片路径
+     *
      * @param context
      * @param uri
      * @return
@@ -43,15 +46,15 @@ public class BitmapUtils {
         if (uri == null) return null;
         String data = null;
         String scheme = uri.getScheme();
-        if (scheme == null){
+        if (scheme == null) {
             data = uri.getPath();
-        }else if(ContentResolver.SCHEME_FILE.equals(scheme)){
+        } else if (ContentResolver.SCHEME_FILE.equals(scheme)) {
             data = uri.getPath();
-        }else if(ContentResolver.SCHEME_CONTENT.equals(scheme)){
-            Cursor cursor = context.getContentResolver().query(uri,new String[]{MediaStore.Images.ImageColumns.DATA},null,null,null);
-            if (cursor != null && cursor.moveToFirst()){
+        } else if (ContentResolver.SCHEME_CONTENT.equals(scheme)) {
+            Cursor cursor = context.getContentResolver().query(uri, new String[]{MediaStore.Images.ImageColumns.DATA}, null, null, null);
+            if (cursor != null && cursor.moveToFirst()) {
                 int index = cursor.getColumnIndex(MediaStore.Images.ImageColumns.DATA);
-                if (index > -1){
+                if (index > -1) {
                     data = cursor.getString(index);
                 }
             }
@@ -109,10 +112,9 @@ public class BitmapUtils {
             e.printStackTrace();
         }
         bmp.recycle();
-        bmp=null;
+        bmp = null;
         return dir;
     }
-
 
 
     /**
@@ -133,42 +135,56 @@ public class BitmapUtils {
     }
 
 
-        /**
-         * 清空文件
-         */
-        public void clearAll(){
-            File file= getSDPath();
-            if (file.exists()) {
-                file.delete();
-            }
+    /**
+     * 清空文件
+     */
+    public void clearAll() {
+        File file = getSDPath();
+        if (file.exists()) {
+            file.delete();
         }
+    }
 
-    	public static Bitmap revitionImageSize(String path) throws IOException {
-		BufferedInputStream in = new BufferedInputStream(new FileInputStream(
-				new File(path)));
-		BitmapFactory.Options options = new BitmapFactory.Options();
-		options.inJustDecodeBounds = true;
-		BitmapFactory.decodeStream(in, null, options);
-		in.close();
-		int i = 0;
-		Bitmap bitmap = null;
-		while (true) {
-			if ((options.outWidth >> i <= 1000)
-					&& (options.outHeight >> i <= 1000)) {
-				in = new BufferedInputStream(
-						new FileInputStream(new File(path)));
-				options.inSampleSize = (int) Math.pow(2.0D, i);
-				options.inJustDecodeBounds = false;
-				bitmap = BitmapFactory.decodeStream(in, null, options);
-				break;
-			}
-			i += 1;
-		}
-		return bitmap;
-	}
+    public static Bitmap revitionImageSize(String path) throws IOException {
+        BufferedInputStream in = new BufferedInputStream(new FileInputStream(
+                new File(path)));
+        BitmapFactory.Options options = new BitmapFactory.Options();
+        options.inJustDecodeBounds = true;
+        BitmapFactory.decodeStream(in, null, options);
+        in.close();
+        int i = 0;
+        Bitmap bitmap = null;
+        while (true) {
+            if ((options.outWidth >> i <= 1000)
+                    && (options.outHeight >> i <= 1000)) {
+                in = new BufferedInputStream(
+                        new FileInputStream(new File(path)));
+                options.inSampleSize = (int) Math.pow(2.0D, i);
+                options.inJustDecodeBounds = false;
+                bitmap = BitmapFactory.decodeStream(in, null, options);
+                break;
+            }
+            i += 1;
+        }
+        return bitmap;
+    }
 
 
-
+    //在不加载图片情况下获取图片大小
+    public static int[] getBitmapWH(String path)
+    {
+        BitmapFactory.Options options = new BitmapFactory.Options();
+        /**
+         * 最关键在此，把options.inJustDecodeBounds = true;
+         * 这里再decodeFile()，返回的bitmap为空，但此时调用options.outHeight时，已经包含了图片的高了
+         */
+        options.inJustDecodeBounds = true;
+        Bitmap bitmap = BitmapFactory.decodeFile(path, options); // 此时返回的bitmap为null
+        /**
+         *options.outHeight为原始图片的高
+         */
+        return new int[]{options.outWidth,options.outHeight};
+    }
 
     /**
      * 返回一个压缩之后的bitmap路径

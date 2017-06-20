@@ -6,4 +6,12 @@
         <attr name="nice9_itemMargin" format="dimension" />
 
     </declare-styleable>
+
+
+    <declare-styleable name="NiceLayout1">
+
+        <attr name="nice9_candrag1" format="boolean" />
+        <attr name="nice9_itemMargin1" format="dimension" />
+
+    </declare-styleable>
 </resources>

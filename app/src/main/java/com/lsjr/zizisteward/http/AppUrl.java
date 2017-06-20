@@ -8,10 +8,10 @@ public interface AppUrl {
 
     String URLKEY="TNNYF17DbevNyxVv";
     /* 正式服务器 */
-    //String Http = "https://app.zizi.com.cn";
+    String Http = "https://app.zizi.com.cn";
 
     /*开发服务器*/
-    String Http = "https://dev.zizi.com.cn";
+    //String Http = "https://dev.zizi.com.cn";
 
     String baseUrl = Http + "/app/";
 
